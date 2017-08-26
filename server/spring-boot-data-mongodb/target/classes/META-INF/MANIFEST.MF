@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Implementation-Title: RESTful API Example with Spring Data REST mangoD
+ B
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: vara
+Implementation-Vendor-Id: com.shopping
+Build-Jdk: 1.8.0_65
+Implementation-URL: http://projects.spring.io/spring-boot/restfullapim
+ angodb/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

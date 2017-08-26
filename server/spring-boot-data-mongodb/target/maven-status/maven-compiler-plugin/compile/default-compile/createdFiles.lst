@@ -1,0 +1,5 @@
+com\mkyong\domain\Domain.class
+com\mkyong\domain\DomainRepository.class
+com\mkyong\domain\DomainRepositoryImpl.class
+com\mkyong\Application.class
+com\mkyong\domain\DomainRepositoryCustom.class

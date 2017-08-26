@@ -1,0 +1,48 @@
+﻿<div style="width: 1430px;">
+        <div id = "bg-background" class = "pull-top col-md-4">
+			<h4>PRODUCTS<h4>
+			<hr style = "border-top:1px groovy #ccc;">
+			<div id = "product">
+				<div id = "p_list" ng-repeat = "product in vm.products ">
+					<h5>{{product.p_name}}</h5>
+					<center><img ng-src = "{{product.p_image}}"/></center>
+					<div><label>Price: ₱{{product.p_price}}</label></div>
+					<center><button type = "button" ng-click = "vm.add_cart(product)"><span class = "glyphicon glyphicon-shopping-cart"></span> Add to cart</button></center>
+				</div>
+			</div>
+		</div>
+		<div class = "pull-bottom col-lg-6">
+			<div class = "panel panel-primary">
+				<div class = "panel-heading">
+					<h5>MY CART</h5>
+				</div>
+				<div class = "panel-body table-responsive" style="width: 630px;">
+					<table class = "table">
+						<thead>
+							<tr>
+								<th>Product</th>
+								<th>Price</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat = "cart in vm.carts" ng-init = "vm.setTotals(cart)">
+								<td>{{cart.p_name}}</td>
+								<td>₱{{cart.p_price}}</td>
+								<td><button type = "button" ng-click = "vm.remove_cart(cart)" class = "btn btn-danger"><span class = "glyphicon glyphicon-remove"></span></button></td>
+							</tr>
+							<tr>
+								<td align = "right">Total</td>
+								<td>₱{{vm.total}}</td>
+							</tr>
+													
+						</tbody>
+					</table>
+					<br>
+					<div class = "pull-right">
+						<button type="button" ng-disabled="carts.length === 0" ng-click="vm.checkout_cart()"><span class = "glyphicon glyphicon-shopping-cart"></span> Checkout ({{vm.carts.length}} item)</button>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
