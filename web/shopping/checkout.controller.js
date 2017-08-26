@@ -39,7 +39,7 @@
 				scrtyPin : vm.scrtyPin
 			};
 			console.log('pymntData :'+JSON.stringify(pymntData));
-			var promise = $http.post('http://localhost:8081/shopping/processPayment', pymntData);
+			var promise = $http.post('http://localhost:8080/shopping/processPayment', pymntData);
 			promise.then(function(data) {
                 vm.dataLoading = false;
 				console.log('Payment has been processed successfully :'+JSON.stringify(data));
