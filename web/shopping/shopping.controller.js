@@ -15,17 +15,17 @@
 		vm.carts=[];
 		
 		vm.products = [
-			{p_id: "1", p_name: "Samsung Galaxy S7 Edge", p_image: "images/1.jpg", p_price: 28990},
-			{p_id: "2", p_name: "iPhone 8", p_image: "images/2.png", p_price: 60138},
-			{p_id: "3", p_name: "Sony Xperia Z3+", p_image: "images/3.png", p_price: 1519000},
-			{p_id: "4", p_name: "ALIENWARE 17", p_image: "images/4.png", p_price: 75187},
-			{p_id: "5", p_name: "Luvaglio Laptop", p_image: "images/5.png", p_price: 50115000},
-			{p_id: "6", p_name: "Motorola Moto G4 16GB", p_image: "images/6.png", p_price: 9013}
+			{productCode: "1", description: "Samsung Galaxy S7 Edge", p_image: "images/1.jpg", unitPrice: 28990},
+			{productCode: "2", description: "iPhone 8", p_image: "images/2.png", unitPrice: 60138},
+			{productCode: "3", description: "Sony Xperia Z3+", p_image: "images/3.png", unitPrice: 1519000},
+			{productCode: "4", description: "ALIENWARE 17", p_image: "images/4.png", unitPrice: 75187},
+			{productCode: "5", description: "Luvaglio Laptop", p_image: "images/5.png", unitPrice: 50115000},
+			{productCode: "6", description: "Motorola Moto G4 16GB", p_image: "images/6.png", unitPrice: 9013}
 		];
 		
 		function add_cart(product) {
 			if(product){
-				vm.carts.push({p_id: product.p_id, p_name: product.p_name, p_price: product.p_price});
+				vm.carts.push({productCode: product.productCode, description: product.description, unitPrice: product.unitPrice});
 			}
 		}
 		
@@ -33,14 +33,14 @@
 		
 		function setTotals(cart){
 			if(cart){
-				vm.total += cart.p_price;
+				vm.total += cart.unitPrice;
 			}
 		}
 		
 		function remove_cart(cart){
 			if(cart){
 				vm.carts.splice(vm.carts.indexOf(cart), 1);
-				vm.total -= cart.p_price;
+				vm.total -= cart.unitPrice;
 			}
 		}
 		

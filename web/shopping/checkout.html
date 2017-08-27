@@ -15,8 +15,8 @@
 						</thead>
 						<tbody>
 							<tr ng-repeat = "cart in checkedItems" ng-init = "vm.setTotals()">
-								<td>{{cart.p_name}}</td>
-								<td>₱{{cart.p_price}}</td>
+								<td>{{cart.description}}</td>
+								<td>₱{{cart.unitPrice}}</td>
 							</tr>
 							<tr>
 								<td align = "right">Total</td>

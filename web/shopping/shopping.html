@@ -3,10 +3,10 @@
 			<h4>PRODUCTS<h4>
 			<hr style = "border-top:1px groovy #ccc;">
 			<div id = "product">
-				<div id = "p_list" ng-repeat = "product in vm.products ">
-					<h5>{{product.p_name}}</h5>
+				<div id = "p_list" ng-repeat = "product in vm.products">
+					<h5>{{product.description}}</h5>
 					<center><img ng-src = "{{product.p_image}}"/></center>
-					<div><label>Price: ₱{{product.p_price}}</label></div>
+					<div><label>Price: ₱{{product.unitPrice}}</label></div>
 					<center><button type = "button" ng-click = "vm.add_cart(product)"><span class = "glyphicon glyphicon-shopping-cart"></span> Add to cart</button></center>
 				</div>
 			</div>
@@ -27,8 +27,8 @@
 						</thead>
 						<tbody>
 							<tr ng-repeat = "cart in vm.carts" ng-init = "vm.setTotals(cart)">
-								<td>{{cart.p_name}}</td>
-								<td>₱{{cart.p_price}}</td>
+								<td>{{cart.description}}</td>
+								<td>₱{{cart.unitPrice}}</td>
 								<td><button type = "button" ng-click = "vm.remove_cart(cart)" class = "btn btn-danger"><span class = "glyphicon glyphicon-remove"></span></button></td>
 							</tr>
 							<tr>

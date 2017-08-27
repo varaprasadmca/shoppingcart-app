@@ -13,19 +13,23 @@
 		vm.processPayment = processPayment;
 		vm.resetPaymentDtls = resetPaymentDtls;
 		vm.total = 0;
+		vm.productLst = [];
 		
 		function setTotals() {
 			if($rootScope.checkedItems) {
 				angular.forEach($rootScope.checkedItems, function(value, key) {
-					vm.total += value.p_price;
+					vm.total += value.unitPrice;					
 				});
-				console.log('total :'+vm.total);				
 			}
 		}
 		
 		function processPayment() {
 			vm.dataLoading = true;
-			console.log('Call payment service and process the transaction');			
+			console.log('Call payment service and process the transaction');
+			angular.forEach($rootScope.checkedItems, function(value, key) {
+					vm.productLst.push(value.productCode);					
+			});
+			console.log('productLst :'+vm.productLst.toString());
 			var pymntData = {
 				fullName : vm.fullName,
 				addrs1 : vm.addrs1,
@@ -36,7 +40,8 @@
 				country : vm.country,
 				cardNmbr : vm.cardNmbr,
 				monYr : vm.monYr,
-				scrtyPin : vm.scrtyPin
+				scrtyPin : vm.scrtyPin,
+				productLst : vm.productLst.toString()
 			};
 			console.log('pymntData :'+JSON.stringify(pymntData));
 			var promise = $http.post('http://localhost:8080/shopping/processPayment', pymntData);
